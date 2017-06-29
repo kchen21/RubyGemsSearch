@@ -1,20 +1,15 @@
-import React rom 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, Redirect } from 'react-router';
+import { BrowserRouter, Route, hashHistory, Redirect } from 'react-router-dom';
 import Home from './home/home';
-import GemSearchContainer from './gem_search/gem_search_container';
-// import FavoritesContainer from './favorites/favorites_container';
 
 const Root = ({ store }) => {
   return (
     <Provider store={ store }>
-      <Router history={ hashHistory }>
-        <Redirect from="/" to "search" />
+      <BrowserRouter history={ hashHistory }>
         <Route path="/" component={ Home }>
-          <Route path="search" component={ GemSearchContainer } />
-          // <Route path="favorites" component={ FavoritesContainer } />
         </Route>
-      </Router>
+      </BrowserRouter>
     </Provider>
   );
 };
