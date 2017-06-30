@@ -4,20 +4,21 @@
 
 .teachable-logo {
   position: absolute;
-  top: 40px;
-  left: 325px;
+  top: 5%;
+  left: 32%;
 }
 
 .link-to-search {
   position: absolute;
-  top: 321px;
-  left: 334px;
+  top: 41.4%;
+  left: 32.5%;
   width: 125px;
   height: 42px;
   line-height: 42px;
   padding-left: 20px;
   font-size: 16px;
   color: white;
+  background: black;
 }
 
 .link-to-search:hover {
@@ -27,14 +28,15 @@
 
 .link-to-favorites {
   position: absolute;
-  top: 363px;
-  left: 334px;
+  top: 46.8%;
+  left: 32.5%;
   width: 125px;
   height: 42px;
   line-height: 42px;
   padding-left: 20px;
   font-size: 16px;
   color: white;
+  background: blue;
 }
 
 .link-to-favorites:hover {
