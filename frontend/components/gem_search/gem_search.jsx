@@ -37,8 +37,8 @@ class GemSearch extends React.Component {
             onChange={ this.handleChange("keyword") }
             value={ this.state.keyword }
             />
-          <input type="submit" style="position: absolute; left: -9999px"/>
-          <img src={ windows.assets.magnifying_glass } />
+          <input type="submit" style="position: absolute; left: -9999px" />
+          <img src={ window.assets.magnifying_glass } />
         </form>
         <ul>
           { gemList }
@@ -47,7 +47,6 @@ class GemSearch extends React.Component {
       </div>
     );
   }
-
 }
 
 export default GemSearch;
