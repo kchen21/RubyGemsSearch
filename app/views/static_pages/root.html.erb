@@ -1,3 +1,8 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
 <script type="text/javascript">
   window.assets = {
     magnifying_glass: "<%= image_url('magnifying-glass.png') %>",
@@ -6,6 +11,18 @@
     star_gray: "<%= image_url('star-gray.png') %>",
     teachable_logo: "<%= image_url('teachable-logo.png') %>"
   }
+
+  $(function() {
+    $('.link-to-search').click(function() {
+        $(this).addClass('active-page');
+        $('.link-to-favorites').removeClass('active-page');
+    });
+
+    $('.link-to-favorites').click(function() {
+        $(this).addClass('active-page');
+        $('.link-to-search').removeClass('active-page');
+    });
+  });
 </script>
 
 <main id="root"></main>

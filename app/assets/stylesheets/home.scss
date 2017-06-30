@@ -1,0 +1,47 @@
+.map {
+  height: 100vh;
+}
+
+.teachable-logo {
+  position: absolute;
+  top: 40px;
+  left: 325px;
+}
+
+.link-to-search {
+  position: absolute;
+  top: 321px;
+  left: 334px;
+  width: 125px;
+  height: 42px;
+  line-height: 42px;
+  padding-left: 20px;
+  font-size: 16px;
+  color: white;
+}
+
+.link-to-search:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-favorites {
+  position: absolute;
+  top: 363px;
+  left: 334px;
+  width: 125px;
+  height: 42px;
+  line-height: 42px;
+  padding-left: 20px;
+  font-size: 16px;
+  color: white;
+}
+
+.link-to-favorites:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.active-page {
+  background-color: rgba(0, 0, 0, 0.25);
+}
