@@ -7,7 +7,7 @@ export const receiveGemSearchResults = (searchResults) => ({
   searchResults
 });
 
-export const fetchGemSearchResults = () => {
+export const fetchGemSearchResults = (keyword) => {
   return (dispatch) => {
     const success = (searchResults) => {
       return dispatch(receiveGemSearchResults(searchResults));
