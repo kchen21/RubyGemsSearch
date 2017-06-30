@@ -8,9 +8,10 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ browserHistory }>
-        <Home>
-          <Route path="/search" component={ GemSearchContainer } />
-        </Home>
+        <div>
+          <Home />
+          <Route exact path="/" component={ GemSearchContainer } />
+        </div>
       </Router>
     </Provider>
   );
