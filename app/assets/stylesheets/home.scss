@@ -42,6 +42,11 @@
   text-decoration: none;
 }
 
+.link-to-search:focus {
+  color: white;
+  text-decoration: none;
+}
+
 .link-to-favorites {
   position: absolute;
   top: 362px;
@@ -55,6 +60,11 @@
 }
 
 .link-to-favorites:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-favorites:focus {
   color: white;
   text-decoration: none;
 }
