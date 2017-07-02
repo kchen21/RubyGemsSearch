@@ -1,3 +1,7 @@
+RubyGems Search is an full-stack web app that I built for Teachable's Growth Team Developer Test. It utilizes Ruby on Rails on the back end and React.js on the front end. It was constructed using a Redux architecture and JSON API.
+
+The instructions for the developer test itself are provided below:
+
 # Teachable Growth Team Developer Test
 
 Thank you for applying to Teachable! Your goal with this test is to build an interface that allows a user to search for ruby gems, and save their favorites.
