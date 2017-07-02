@@ -30,13 +30,21 @@ class GemSearch extends React.Component {
       let dependenciesList = [];
       let dependencies = gem.dependencies.runtime;
 
-      for (let i = 0; i < dependencies.length; i++) {
-        let dependency = dependencies[i];
+      if (dependencies.length === 0) {
         dependenciesList.push(
-          <li key={ i }>
-            { dependency.name }
-          </li>
+          <li key="0"><p>None</p></li>
         );
+      } else {
+        for (let i = 0; i < dependencies.length; i++) {
+          let dependency = dependencies[i];
+          dependenciesList.push(
+            <li key={ i }>
+              <p>
+                { dependency.name }
+              </p>
+            </li>
+          );
+        }
       }
 
       return dependenciesList;
@@ -51,11 +59,11 @@ class GemSearch extends React.Component {
       for (let i = 0; i < gems.length; i++) {
         let gem = gems[i];
         gemList.push(
-          <li key={ i }>
+          <li className="gem-list-item" key={ i }>
             <a href={ gem.project_uri }>{ gem.name }</a>
-            <h6>INFORMATION</h6>
+            <h5>INFORMATION</h5>
             <p>{ gem.info }</p>
-            <h6>DEPENDENCIES</h6>
+            <h5>DEPENDENCIES</h5>
             <ul>
               { renderDependenciesList(gem) }
             </ul>
@@ -79,7 +87,7 @@ class GemSearch extends React.Component {
           <input type="submit" style={{ position: 'absolute', left: '-9999px'}} />
           <img src={ window.assets.magnifying_glass } />
         </form>
-        <ul>
+        <ul className="gem-list">
           { renderGemList() }
         </ul>
       </div>
