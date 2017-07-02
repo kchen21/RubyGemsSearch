@@ -67,13 +67,14 @@ class GemSearch extends React.Component {
     };
 
     return (
-      <div>
+      <div className="gem-search">
         <h1>Search Gems</h1>
         <form className="gem-search-form" onSubmit={ this.handleSubmit }>
           <input
             type="text"
             onChange={ this.handleChange("keyword") }
             value={ this.state.keyword }
+            placeholder="Search for a gem..."
             />
           <input type="submit" style={{ position: 'absolute', left: '-9999px'}} />
           <img src={ window.assets.magnifying_glass } />

@@ -1,0 +1,31 @@
+.gem-search {
+  margin: 150px 0;
+  padding: 0 100px;
+}
+
+.gem-search > h1 {
+  margin: 28px;
+}
+
+.gem-search-form {
+  border: 1px solid #5F5F5F;
+  border-radius: 100px;
+  height: 50px;
+  position: relative;
+}
+
+.gem-search-form > input {
+  margin-left: 22px;
+  border: none;
+  line-height: 46px;
+}
+
+.gem-search-form > input:focus {
+  outline: none;
+}
+
+.gem-search-form > img {
+  position: absolute;
+  right: 15px;
+  margin: 14px 0;
+}
