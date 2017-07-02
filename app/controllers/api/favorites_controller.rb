@@ -18,7 +18,7 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find_by(name: favorite_params[:name])
+    @favorite = Favorite.find(params[:id])
 
     if @favorite
       @favorite.destroy
@@ -32,6 +32,6 @@ class Api::FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorites).permit(:name, :link)
+    params.require(:favorite).permit(:name, :link)
   end
 end
