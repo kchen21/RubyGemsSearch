@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628211437) do
+ActiveRecord::Schema.define(version: 20170702203332) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["name"], name: "index_favorites_on_name", unique: true
 
   create_table "rubygems", force: :cascade do |t|
     t.datetime "created_at", null: false
