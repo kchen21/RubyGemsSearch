@@ -26,7 +26,45 @@ class GemSearch extends React.Component {
   }
 
   render() {
-    const gemList = [];
+    function renderDependenciesList(gem) {
+      let dependenciesList = [];
+      let dependencies = gem.dependencies.runtime;
+
+      for (let i = 0; i < dependencies.length; i++) {
+        let dependency = dependencies[i];
+        dependenciesList.push(
+          <li key={ i }>
+            { dependency.name }
+          </li>
+        );
+      }
+
+      return dependenciesList;
+    };
+
+    let searchResults = this.state.searchResults;
+
+    function renderGemList() {
+      let gemList = [];
+      let gems = searchResults.gems || [];
+
+      for (let i = 0; i < gems.length; i++) {
+        let gem = gems[i];
+        gemList.push(
+          <li key={ i }>
+            <a href={ gem.project_uri }>{ gem.name }</a>
+            <h6>INFORMATION</h6>
+            <p>{ gem.info }</p>
+            <h6>DEPENDENCIES</h6>
+            <ul>
+              { renderDependenciesList(gem) }
+            </ul>
+          </li>
+        );
+      }
+
+      return gemList;
+    };
 
     return (
       <div>
@@ -41,7 +79,7 @@ class GemSearch extends React.Component {
           <img src={ window.assets.magnifying_glass } />
         </form>
         <ul>
-          { gemList }
+          { renderGemList() }
         </ul>
       </div>
     );
