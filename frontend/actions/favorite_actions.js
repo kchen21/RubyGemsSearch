@@ -7,7 +7,7 @@ export const receiveFavorites = (favorites) => ({
   favorites
 });
 
-export const fetchFavorites = () = {
+export const fetchFavorites = () => {
   return (dispatch) => {
     const success = (favorites) => {
       return dispatch(receiveFavorites(favorites));

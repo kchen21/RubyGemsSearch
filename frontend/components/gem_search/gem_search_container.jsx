@@ -5,7 +5,7 @@ import GemSearch from './gem_search';
 
 const mapStateToProps = (state) => {
   return {
-    searchResults: state.searchResults
+    searchResults: state.rubygemData.searchResults
   };
 };
 
