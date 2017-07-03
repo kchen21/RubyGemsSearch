@@ -10,8 +10,11 @@ class Favorites extends React.Component {
 
   componentDidMount() {
     this.props.fetchFavorites();
+  }
+
+  componentWillReceiveProps(newProps) {
     this.setState({
-      favorites: this.props.favorites
+      favorites: newProps.favorites
     });
   }
 
