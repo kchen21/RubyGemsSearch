@@ -4,7 +4,7 @@ class Favorites extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      favorites: {};
+      favorites: {}
     };
   }
 
@@ -32,10 +32,14 @@ class Favorites extends React.Component {
     }
 
     return (
-      <h1>Your Favorite Gems</h1>
-      <ul>
-        { renderFavoritesList() }
-      </ul>
+      <div>
+        <h1>Your Favorite Gems</h1>
+        <ul>
+          { renderFavoritesList(this.state.favorites) }
+        </ul>
+      </div>
     );
   }
 }
+
+export default Favorites;

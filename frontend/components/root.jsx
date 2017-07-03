@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { HashRouter as Router, Route, hashHistory, Redirect } from 'react-router-dom';
 import Home from './home/home';
 import GemSearchContainer from './gem_search/gem_search_container';
+import FavoritesContainer from './favorites/favorites_container';
 
 const Root = ({ store }) => {
   return (
@@ -10,6 +11,7 @@ const Root = ({ store }) => {
       <Router history={ hashHistory }>
         <Home>
           <Route path='/search' component={ GemSearchContainer } />
+          <Route path='/favorites' component={ FavoritesContainer } />
         </Home>
       </Router>
     </Provider>
