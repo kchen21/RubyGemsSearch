@@ -10,8 +10,7 @@ class GemSearch extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleBlueStarClick = this.handleBlueStarClick.bind(this);
-    this.handleGrayStarClick = this.handleGrayStarClick.bind(this);
+    this.handleStarClick = this.handleStarClick.bind(this);
   }
 
   handleChange(propertyName) {
@@ -27,25 +26,33 @@ class GemSearch extends React.Component {
     });
   }
 
-  handleBlueStarClick() {
-
-  }
-
-  handleGrayStarClick() {
-    
+  handleStarClick(action, gem) {
+    if (action === "unfavorite") {
+      return (e) => {
+        this.props.deleteFavorite(gem.id);
+      }
+    } else if (action === "favorite") {
+      return (e) => {
+        let favorite = {
+          name: gem.name,
+          link: gem.project_uri
+        };
+        this.props.createFavorite(favorite);
+      }
+    }
   }
 
   render() {
     const renderStar = (gem) => {
       if (gem.favorited) {
         return (
-          <button onClick={ this.handleBlueStarClick }>
+          <button onClick={ this.handleStarClick("unfavorite", gem) }>
             <img src={ window.assets.star_blue } />
           </button>
         );
       } else {
         return (
-          <button onClick={ this.handleGrayStarClick }>
+          <button onClick={ this.handleStarClick("favorite", gem) }>
             <img src={ window.assets.star_gray }  />
           </button>
         );
