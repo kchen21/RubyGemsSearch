@@ -1,4 +1,4 @@
-import * as FavoriteAPIUtil from '../util/favorite_util';
+import * as FavoriteAPIUtil from '../util/favorite_api_util';
 
 export const RECEIVE_FAVORITES = 'RECEIVE_FAVORITES';
 

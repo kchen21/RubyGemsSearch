@@ -1,4 +1,4 @@
-import * as RubygemAPIUtil from '../util/rubygem_util';
+import * as RubygemAPIUtil from '../util/rubygem_api_util';
 
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_GEM_SEARCH_RESULTS";
 
