@@ -30,6 +30,10 @@
   outline: none;
 }
 
+.favorite-list-item > button:hover {
+  opacity: .5;
+}
+
 .favorite-list-item > a {
   padding-left: 10px;
 }
