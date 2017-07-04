@@ -25,7 +25,8 @@ class Favorites extends React.Component {
       for (let gemName in favorites) {
         let gemInfo = favorites[gemName];
         favoritesList.push(
-          <li key={ gemName }>
+          <li className="favorite-list-item" key={ gemName }>
+            <img src={ window.assets.star_blue } />
             <a href={ gemInfo.link }>{ gemName }</a>
           </li>
         );
@@ -35,9 +36,9 @@ class Favorites extends React.Component {
     }
 
     return (
-      <div>
+      <div className="favorites">
         <h1>Your Favorite Gems</h1>
-        <ul>
+        <ul className="favorite-list">
           { renderFavoritesList(this.state.favorites) }
         </ul>
       </div>
