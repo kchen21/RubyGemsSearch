@@ -1,4 +1,5 @@
 import React from 'react';
+import { merge } from 'lodash';
 
 class GemSearch extends React.Component {
   constructor(props) {
@@ -29,7 +30,13 @@ class GemSearch extends React.Component {
   handleStarClick(action, gem) {
     if (action === "unfavorite") {
       return (e) => {
-        this.props.deleteFavorite(gem.id);
+        this.props.deleteFavorite(gem.favorite_id).then(() => {
+          const newSearchResults = merge({}, this.state.searchResults);
+          newSearchResults[gem.name].favorited = false;
+          this.setState({
+            searchResults: newSearchResults
+          });
+        });
       }
     } else if (action === "favorite") {
       return (e) => {
@@ -37,7 +44,13 @@ class GemSearch extends React.Component {
           name: gem.name,
           link: gem.project_uri
         };
-        this.props.createFavorite(favorite);
+        this.props.createFavorite(favorite).then(() => {
+          const newSearchResults = merge({}, this.state.searchResults);
+          newSearchResults[gem.name].favorited = true;
+          this.setState({
+            searchResults: newSearchResults
+          });
+        });
       }
     }
   }

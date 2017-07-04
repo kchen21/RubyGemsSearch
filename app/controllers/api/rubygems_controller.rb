@@ -3,20 +3,20 @@ class Api::RubygemsController < ApplicationController
 
   def search
     @gems = Gems.search(params[:keyword])
-    @favorites = get_names_of_favorites
+    @favorites = get_favorites
     render :search
   end
 
   private
 
-  def get_names_of_favorites
+  def get_favorites
     favorites = Favorite.all
-    names = [];
+    namesToFavorites = {};
 
     favorites.each do |favorite|
-      names.push(favorite.name)
+      namesToFavorites[favorite.name] = favorite
     end
 
-    names
+    namesToFavorites
   end
 end
