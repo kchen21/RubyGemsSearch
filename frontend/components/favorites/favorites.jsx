@@ -6,6 +6,8 @@ class Favorites extends React.Component {
     this.state = {
       favorites: {}
     };
+
+    this.handleStarClick = this.handleStarClick.bind(this);
   }
 
   componentDidMount() {
@@ -18,15 +20,24 @@ class Favorites extends React.Component {
     });
   }
 
+  handleStarClick(id) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteFavorite(id);
+    };
+  }
+
   render() {
-    function renderFavoritesList(favorites) {
+    const renderFavoritesList = (favorites) => {
       let favoritesList = [];
 
       for (let gemName in favorites) {
         let gemInfo = favorites[gemName];
         favoritesList.push(
           <li className="favorite-list-item" key={ gemName }>
-            <img src={ window.assets.star_blue } />
+            <button onClick={ this.handleStarClick(gemInfo.id) }>
+              <img src={ window.assets.star_blue } />
+            </button>
             <a href={ gemInfo.link }>{ gemName }</a>
           </li>
         );
