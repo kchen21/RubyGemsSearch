@@ -10,6 +10,8 @@ class GemSearch extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleBlueStarClick = this.handleBlueStarClick.bind(this);
+    this.handleGrayStarClick = this.handleGrayStarClick.bind(this);
   }
 
   handleChange(propertyName) {
@@ -25,8 +27,32 @@ class GemSearch extends React.Component {
     });
   }
 
+  handleBlueStarClick() {
+
+  }
+
+  handleGrayStarClick() {
+    
+  }
+
   render() {
-    function renderDependenciesList(gem) {
+    const renderStar = (gem) => {
+      if (gem.favorited) {
+        return (
+          <button onClick={ this.handleBlueStarClick }>
+            <img src={ window.assets.star_blue } />
+          </button>
+        );
+      } else {
+        return (
+          <button onClick={ this.handleGrayStarClick }>
+            <img src={ window.assets.star_gray }  />
+          </button>
+        );
+      }
+    }
+
+    const renderDependenciesList = (gem) => {
       let dependenciesList = [];
       let dependencies = gem.dependencies.runtime;
 
@@ -52,7 +78,7 @@ class GemSearch extends React.Component {
 
     let searchResults = this.state.searchResults;
 
-    function renderGemList() {
+    const renderGemList = () => {
       let gemList = [];
 
       for (let gemName in searchResults) {
@@ -60,6 +86,7 @@ class GemSearch extends React.Component {
         gemList.push(
           <li className="gem-list-item" key={ gemName }>
             <a href={ gem.project_uri }>{ gem.name }</a>
+            { renderStar(gem) }
             <h5>INFORMATION</h5>
             <p>{ gem.info }</p>
             <h5>DEPENDENCIES</h5>
