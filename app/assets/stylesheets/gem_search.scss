@@ -45,3 +45,18 @@
   color: grey;
   margin: 0;
 }
+
+.gem-list-item > button {
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.gem-list-item > button:focus {
+  outline: none;
+}
+
+.gem-list-item > button:hover {
+  opacity: .5;
+}
