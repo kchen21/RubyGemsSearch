@@ -10,6 +10,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Home>
+          <Redirect from="/" to="/search" />
           <Route path='/search' component={ GemSearchContainer } />
           <Route path='/favorites' component={ FavoritesContainer } />
         </Home>
