@@ -11,18 +11,6 @@
     star_gray: "<%= image_url('star-gray.png') %>",
     teachable_logo: "<%= image_url('teachable-logo.png') %>"
   }
-
-  $(function() {
-    $('.link-to-search').click(function() {
-        $(this).addClass('active-page');
-        $('.link-to-favorites').removeClass('active-page');
-    });
-
-    $('.link-to-favorites').click(function() {
-        $(this).addClass('active-page');
-        $('.link-to-search').removeClass('active-page');
-    });
-  });
 </script>
 
 <main id="root"></main>
