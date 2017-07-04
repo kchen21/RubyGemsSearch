@@ -20,7 +20,8 @@ export const fetchFavorites = () => {
 export const createFavorite = (favorite) => {
   return (dispatch) => {
     const success = (favorites) => {
-      return dispatch(receiveFavorites(favorites));
+      dispatch(receiveFavorites(favorites));
+      return favorites;
     };
 
     return FavoriteAPIUtil.createFavorite(favorite).then(success);

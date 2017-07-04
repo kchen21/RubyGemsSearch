@@ -44,9 +44,10 @@ class GemSearch extends React.Component {
           name: gem.name,
           link: gem.project_uri
         };
-        this.props.createFavorite(favorite).then(() => {
+        this.props.createFavorite(favorite).then((favorites) => {
           const newSearchResults = merge({}, this.state.searchResults);
           newSearchResults[gem.name].favorited = true;
+          newSearchResults[gem.name].favorite_id = favorites[gem.name].id;
           this.setState({
             searchResults: newSearchResults
           });
