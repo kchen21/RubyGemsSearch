@@ -54,12 +54,11 @@ class GemSearch extends React.Component {
 
     function renderGemList() {
       let gemList = [];
-      let gems = searchResults.gems || [];
 
-      for (let i = 0; i < gems.length; i++) {
-        let gem = gems[i];
+      for (let gemName in searchResults) {
+        let gem = searchResults[gemName];
         gemList.push(
-          <li className="gem-list-item" key={ i }>
+          <li className="gem-list-item" key={ gemName }>
             <a href={ gem.project_uri }>{ gem.name }</a>
             <h5>INFORMATION</h5>
             <p>{ gem.info }</p>
