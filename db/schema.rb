@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170702203332) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favorites", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "link"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170702203332) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "favorites", ["name"], name: "index_favorites_on_name", unique: true
+  add_index "favorites", ["name"], name: "index_favorites_on_name", unique: true, using: :btree
 
   create_table "rubygems", force: :cascade do |t|
     t.datetime "created_at", null: false
