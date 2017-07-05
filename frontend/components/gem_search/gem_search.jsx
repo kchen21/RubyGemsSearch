@@ -111,7 +111,7 @@ class GemSearch extends React.Component {
       let dependencies = gem.dependencies;
 
 
-      if (Object.keys(dependencies).length === 0) {
+      if (dependencies && Object.keys(dependencies).length === 0) {
         dependenciesList.push(
           <li key="0"><p>None</p></li>
         );
