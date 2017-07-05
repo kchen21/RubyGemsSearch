@@ -36,8 +36,9 @@ class GemSearch extends React.Component {
           const unfavoriteAllDependencyInstances = () => {
             for (let gemName in newSearchResults) {
               let gem = newSearchResults[gemName];
-              if (gem.dependencies[gemOrDep.name]) {
-                gem.dependencies[gemOrDep.name].favorited = false;
+              let dependencies = gem.dependencies || {};
+              if (dependencies[gemOrDep.name]) {
+                dependencies[gemOrDep.name].favorited = false;
               }
             }
           };
@@ -66,9 +67,10 @@ class GemSearch extends React.Component {
           const favoriteAllDependencyInstances = () => {
             for (let gemName in newSearchResults) {
               let gem = newSearchResults[gemName];
-              if (gem.dependencies[gemOrDep.name]) {
-                gem.dependencies[gemOrDep.name].favorited = true;
-                gem.dependencies[gemOrDep.name].favorite_id = favorites[gemOrDep.name].id;
+              let dependencies = gem.dependencies || {};
+              if (dependencies[gemOrDep.name]) {
+                dependencies[gemOrDep.name].favorited = true;
+                dependencies[gemOrDep.name].favorite_id = favorites[gemOrDep.name].id;
               }
             }
           }
