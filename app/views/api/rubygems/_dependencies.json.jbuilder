@@ -4,6 +4,7 @@ dependencies.each do |d|
   json.set! d["name"] do
     json.extract! d, "name"
     json.project_uri "https://rubygems.org/gems/" + d["name"]
+    json.is_dep true
 
     if favorites.keys.include?d["name"]
       json.favorited true

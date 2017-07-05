@@ -27,12 +27,30 @@ class GemSearch extends React.Component {
     });
   }
 
-  handleStarClick(action, gem) {
+  handleStarClick(action, gemOrDep) {
     if (action === "unfavorite") {
       return (e) => {
-        this.props.deleteFavorite(gem.favorite_id).then(() => {
+        this.props.deleteFavorite(gemOrDep.favorite_id).then(() => {
           const newSearchResults = merge({}, this.state.searchResults);
-          newSearchResults[gem.name].favorited = false;
+
+          const unfavoriteAllDependencyInstances = () => {
+            for (let gemName in newSearchResults) {
+              let gem = newSearchResults[gemName];
+              if (gem.dependencies[gemOrDep.name]) {
+                gem.dependencies[gemOrDep.name].favorited = false;
+              }
+            }
+          };
+
+          if (gemOrDep.is_dep) {
+            unfavoriteAllDependencyInstances();
+          }
+
+          if (newSearchResults[gemOrDep.name]) {
+            newSearchResults[gemOrDep.name].favorited = false;
+            unfavoriteAllDependencyInstances();
+          }
+
           this.setState({
             searchResults: newSearchResults
           });
@@ -41,13 +59,32 @@ class GemSearch extends React.Component {
     } else if (action === "favorite") {
       return (e) => {
         let favorite = {
-          name: gem.name,
-          link: gem.project_uri
+          name: gemOrDep.name,
+          link: gemOrDep.project_uri
         };
         this.props.createFavorite(favorite).then((favorites) => {
           const newSearchResults = merge({}, this.state.searchResults);
-          newSearchResults[gem.name].favorited = true;
-          newSearchResults[gem.name].favorite_id = favorites[gem.name].id;
+
+          const favoriteAllDependencyInstances = () => {
+            for (let gemName in newSearchResults) {
+              let gem = newSearchResults[gemName];
+              if (gem.dependencies[gemOrDep.name]) {
+                gem.dependencies[gemOrDep.name].favorited = true;
+                gem.dependencies[gemOrDep.name].favorite_id = favorites[gemOrDep.name].id;
+              }
+            }
+          }
+
+          if (gemOrDep.is_dep) {
+            favoriteAllDependencyInstances();
+          }
+
+          if (newSearchResults[gemOrDep.name]) {
+            newSearchResults[gemOrDep.name].favorited = true;
+            newSearchResults[gemOrDep.name].favorite_id = favorites[gemOrDep.name].id;
+            favoriteAllDependencyInstances();
+          }
+
           this.setState({
             searchResults: newSearchResults
           });
@@ -57,16 +94,16 @@ class GemSearch extends React.Component {
   }
 
   render() {
-    const renderStar = (gem) => {
-      if (gem.favorited) {
+    const renderStar = (gemOrDep) => {
+      if (gemOrDep.favorited) {
         return (
-          <button onClick={ this.handleStarClick("unfavorite", gem) }>
+          <button onClick={ this.handleStarClick("unfavorite", gemOrDep) }>
             <img src={ window.assets.star_blue } />
           </button>
         );
       } else {
         return (
-          <button onClick={ this.handleStarClick("favorite", gem) }>
+          <button onClick={ this.handleStarClick("favorite", gemOrDep) }>
             <img src={ window.assets.star_gray }  />
           </button>
         );
