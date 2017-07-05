@@ -60,3 +60,18 @@
 .gem-list-item > button:hover {
   opacity: .5;
 }
+
+.dependency-list-item > button {
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.dependency-list-item > button:focus {
+  outline: none;
+}
+
+.dependency-list-item > button:hover {
+  opacity: .5;
+}

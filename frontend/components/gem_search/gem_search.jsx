@@ -75,20 +75,19 @@ class GemSearch extends React.Component {
 
     const renderDependenciesList = (gem) => {
       let dependenciesList = [];
-      let dependencies = gem.dependencies.runtime;
+      let dependencies = gem.dependencies;
 
-      if (dependencies.length === 0) {
+      if (Object.keys(dependencies).length === 0) {
         dependenciesList.push(
           <li key="0"><p>None</p></li>
         );
       } else {
-        for (let i = 0; i < dependencies.length; i++) {
-          let dependency = dependencies[i];
+        for (let dependencyName in dependencies) {
+          let dependencyInfo = dependencies[dependencyName];
           dependenciesList.push(
-            <li key={ i }>
-              <p>
-                { dependency.name }
-              </p>
+            <li className="dependency-list-item" key={ dependencyName }>
+              <a href={ dependencyInfo.project_uri }>{ dependencyInfo.name }</a>
+              { renderStar(dependencyInfo) }
             </li>
           );
         }
