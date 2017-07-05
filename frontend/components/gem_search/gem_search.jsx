@@ -42,12 +42,10 @@ class GemSearch extends React.Component {
             }
           };
 
-          if (gemOrDep.is_dep) {
-            unfavoriteAllDependencyInstances();
-          }
-
           if (newSearchResults[gemOrDep.name]) {
             newSearchResults[gemOrDep.name].favorited = false;
+            unfavoriteAllDependencyInstances();
+          } else if (gemOrDep.is_dep) {
             unfavoriteAllDependencyInstances();
           }
 
@@ -75,13 +73,11 @@ class GemSearch extends React.Component {
             }
           }
 
-          if (gemOrDep.is_dep) {
-            favoriteAllDependencyInstances();
-          }
-
           if (newSearchResults[gemOrDep.name]) {
             newSearchResults[gemOrDep.name].favorited = true;
             newSearchResults[gemOrDep.name].favorite_id = favorites[gemOrDep.name].id;
+            favoriteAllDependencyInstances();
+          } else if (gemOrDep.is_dep) {
             favoriteAllDependencyInstances();
           }
 
@@ -113,6 +109,7 @@ class GemSearch extends React.Component {
     const renderDependenciesList = (gem) => {
       let dependenciesList = [];
       let dependencies = gem.dependencies;
+
 
       if (Object.keys(dependencies).length === 0) {
         dependenciesList.push(
