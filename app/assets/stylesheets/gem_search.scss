@@ -15,7 +15,8 @@
   margin: 28px 0;
 }
 
-.gem-search-form > input {
+.gem-search-form > .text-input-field {
+  width: calc(100% - 72px);
   margin-left: 22px;
   border: none;
   line-height: 46px;
@@ -25,7 +26,12 @@
   outline: none;
 }
 
-.gem-search-form > img {
+.gem-search-form > .submit-button {
+  background: url('magnifying-glass.png');
+  border: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
   position: absolute;
   right: 15px;
   margin: 14px 0;
