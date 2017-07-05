@@ -8,7 +8,7 @@ RubyGems Search is an full-stack web app that I built for Teachable's Growth Tea
 
 RubyGems Search utilizes Ruby on Rails on the back end and React.js on the front end. I constructed it using a Redux architecture and JSON API. On the server side, I used the RubyGems gem to make queries to RubyGems' database to fetch search results.
 
-The instructions for the developer test itself are provided below:
+The instructions for the original developer test are provided below. I stored favorites in a PostgreSQL database instead of localStorage as instructed because I decided, design-wise, it'd be more useful if I could access favorites that I had saved in previous browsing sessions.
 
 ## Teachable Growth Team Developer Test
 
