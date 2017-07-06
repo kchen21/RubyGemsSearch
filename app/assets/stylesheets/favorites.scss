@@ -37,3 +37,15 @@
 .favorite-list-item > a {
   padding-left: 10px;
 }
+
+@media only screen and (max-width: 917.38px)  {
+  .favorite-list {
+    width: calc(100vw - 100px);
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .favorite-list-item {
+    width: calc((100vw - 100px) / 3);
+  }
+}
