@@ -81,3 +81,15 @@
 .dependency-list-item > button:hover {
   opacity: .5;
 }
+
+@media only screen and (max-width: 917.38px)  {
+  .gem-search {
+    padding: 0 50px;
+  }
+
+  .gem-list {
+    height: auto;
+    overflow-y: auto;
+    margin: 23px;
+  }
+}
